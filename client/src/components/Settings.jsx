@@ -81,7 +81,7 @@ export default function Settings(props) {
           setPassword2("")
           return;
       }
-      axios.post(`${props.ENDPOINT}users/update`, {id, name, email, password: password1}).then(resp => {
+      axios.post(`/users/update`, {id, name, email, password: password1}).then(resp => {
           if(!resp.data.user){
             setError(resp.data.msg)
             return;

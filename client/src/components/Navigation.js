@@ -74,7 +74,7 @@ export default function Navigation() {
   //   }
   // };
   useEffect(() => {
-    axios.get(`${ENDPOINT}ui`).then(resp => {
+    axios.get(`/ui`).then(resp => {
       // if(!resp.data.bin) return;
       if(resp.data.bin.length > 0){
         setBin(resp.data.bin)

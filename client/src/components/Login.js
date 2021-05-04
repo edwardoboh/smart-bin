@@ -57,7 +57,7 @@ export default function Login() {
       return;
     }
     // console.log("submit button clicked")
-    axios.post(`${ENDPOINT}users/signin`, {email, password}).then(
+    axios.post(`/users/signin`, {email, password}).then(
       resp => {
         // console.log("Sign In: ", resp)
         if(!resp.data.user){
