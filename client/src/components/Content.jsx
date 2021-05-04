@@ -97,7 +97,7 @@ function Content(props){
             <Grid item>
               {/* <Paper className={classes.paper}> */}
               <Typography variant="subtitle2" component="div" color="textSecondary">
-                <strong>FOUL ODOUR: </strong>{props.bin[props.bin.length - 1].smell === 1 ? "   Yes": "   No"}
+                <strong>FOUL ODOUR: </strong>{props.bin[props.bin.length - 1].smell === "1" ? "   Yes": "   No"}
               </Typography>
               {/* </Paper> */}
             </Grid>

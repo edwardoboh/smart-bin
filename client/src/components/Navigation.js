@@ -85,10 +85,10 @@ export default function Navigation() {
   //**********************SOCKET IO*******************/
   useEffect(()=>{
     socket = io("/")
-    console.log("User has connected to socket")
+    // console.log("User has connected to socket")
     socket.on("readings", (readings, callback) => {
       // Set state to the current received reading
-      console.log(readings)
+      // console.log(readings)
       setBin(prevBin => [...prevBin, readings])
       callback()
     })
