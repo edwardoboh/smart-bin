@@ -84,7 +84,7 @@ export default function Navigation() {
 
   //**********************SOCKET IO*******************/
   useEffect(()=>{
-    socket = io(ENDPOINT)
+    socket = io("/")
     console.log("User has connected to socket")
     socket.on("readings", (readings, callback) => {
       // Set state to the current received reading
