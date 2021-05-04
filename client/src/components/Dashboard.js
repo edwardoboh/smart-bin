@@ -56,9 +56,9 @@ export default function Dashboard() {
     <CssBaseline />
       <AppBar position="static" style={{ background: '#2E3B55', marginBottom: '2rem' }}>
         <Toolbar>
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+          {/* <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
             <MenuIcon />
-          </IconButton>
+          </IconButton> */}
           <Typography variant="h6" className={classes.title}>
             Smart Bin
           </Typography>
