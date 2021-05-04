@@ -44,6 +44,7 @@ export default function Settings(props) {
   const [id, setId] = useState("")
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
+  const [phone, setPhone] = useState("")
   const [password1, setPassword1] = useState("")
   const [password2, setPassword2] = useState("")
 
@@ -60,6 +61,7 @@ export default function Settings(props) {
         setId(user._id)
         setName(user.name)
         setEmail(user.email)
+        setPhone(user.phone)
         setPassword1(user.password)
         setPassword2(user.password)
   }, [])
@@ -72,7 +74,7 @@ export default function Settings(props) {
 
   useEffect(() => {
     setError(null)
-  }, [email, password1, password2, name])
+  }, [email, password1, password2, name, phone])
 
   const updateData = () => {
       if(password1 !== password2){
@@ -81,7 +83,12 @@ export default function Settings(props) {
           setPassword2("")
           return;
       }
-      axios.post(`/users/update`, {id, name, email, password: password1}).then(resp => {
+      if(!email || !password1 || !phone || !name){
+        setError("Fields cannot be empty")
+        // console.log("Empty")
+        return;
+      }
+      axios.post(`/users/update`, {id, name, email, phone, password: password1}).then(resp => {
           if(!resp.data.user){
             setError(resp.data.msg)
             return;
@@ -154,6 +161,20 @@ export default function Settings(props) {
                 autoComplete="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                autoComplete="phone"
+                name="phone"
+                variant="outlined"
+                required
+                fullWidth
+                id="phone"
+                label="Phone"
+                autoFocus
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
               />
             </Grid>
             <Grid item xs={12}>
